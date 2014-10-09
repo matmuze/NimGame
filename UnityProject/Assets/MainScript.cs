@@ -7,7 +7,7 @@ using System.Linq;
 
 public class MainScript : MonoBehaviour 
 {
-	//***** Game Logic *****//
+	//***** Game Logic attributes *****//
 
 	private const int NUM_STICKS = 20;
 	private const int NUM_SHOTS = 3;
@@ -21,9 +21,9 @@ public class MainScript : MonoBehaviour
 	private GameObject[] gameSticks = new GameObject[NUM_STICKS];
 	private List<int> sticksLeft = new List<int>();
 
-	public bool useCPU = true;
+	public bool useCPU = false;
 	
-	//***** GUI *****//
+	//***** GUI stuffs *****//
 
 	public Image gamePanel;
 	public Image gameOverPanel;
@@ -59,7 +59,7 @@ public class MainScript : MonoBehaviour
 
 		// Init GUI
 		HideGameOverGUI();
-		HighlightPlayer(currentPlayer);
+		HighlightPlayerGUI(currentPlayer);
 	}	
 
 	// Restart function which is called at the end of a game
@@ -103,7 +103,7 @@ public class MainScript : MonoBehaviour
 		currentPlayer = player; 
 		shotsLeft = NUM_SHOTS;
 
-		HighlightPlayer(currentPlayer);
+		HighlightPlayerGUI(currentPlayer);
 		endTurnButton.gameObject.SetActive(false);
 
 		// This bit makes sure that game sticks are not clickable when the CPU is playing
